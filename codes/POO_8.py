@@ -19,6 +19,25 @@ class Npc:
         print(f'Vida........: {self.vida}')
 
 
+class TabelaJogadores:
+    def __init__(self):
+        self.lista_jogadores = []
+    
+    def adicionar(self, jogadores):
+        self.lista_jogadores.append(jogadores)
+
+    def menu(self):
+        for jog in self.lista_jogadores:
+            print('-' * 25)
+            print(f'Nome........: {jog.nome}')
+            print(f'Classe......: {jog.classe}')
+            print(f'Time........: {jog.time}')
+            print(f'Ataque......: {jog.ataque}')
+            print(f'Defesa......: {jog.defesa}')
+            print(f'Status......: {"Vivo" if jog.status else "Morto"}')
+            print(f'Vida........: {jog.vida}')
+
+
 class Soldado(Npc):
     def __init__(self, nome, time, status = True):
         self.vida = 300
@@ -51,10 +70,11 @@ p4 = Soldado('Claúdio', 2)
 p5 = Atirador('Felipe', 2)
 p6 = Tanque('Henrique', 2)
 
-npc.info()
-p1.info()
-p2.info()
-p3.info()
-p4.info()
-p5.info()
-p6.info()
+lista_jogadores = TabelaJogadores()
+lista_jogadores.adicionar(p1)
+lista_jogadores.adicionar(p2)
+lista_jogadores.adicionar(p3)
+lista_jogadores.adicionar(p4)
+lista_jogadores.adicionar(p5)
+lista_jogadores.adicionar(p6)
+lista_jogadores.menu()
