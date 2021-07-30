@@ -68,13 +68,15 @@ p2 = Atirador('Saulo', 1)
 p3 = Tanque('Pedro', 1)
 p4 = Soldado('Claúdio', 2)
 p5 = Atirador('Felipe', 2)
-p6 = Tanque('Henrique', 2)
+p6 = Tanque('Henrique', 2, status=False)
+
+# ver as infos especificas de um player
+# p1.info()
 
 lista_jogadores = TabelaJogadores()
-lista_jogadores.adicionar(p1)
 lista_jogadores.adicionar(p2)
 lista_jogadores.adicionar(p3)
 lista_jogadores.adicionar(p4)
-lista_jogadores.adicionar(p5)
 lista_jogadores.adicionar(p6)
+# ver as informações de todos os players adicionados no método anterior
 lista_jogadores.menu()
