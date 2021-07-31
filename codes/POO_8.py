@@ -19,25 +19,6 @@ class Npc:
         print(f'Vida........: {self.vida}')
 
 
-class TabelaJogadores:
-    def __init__(self):
-        self.lista_jogadores = []
-    
-    def adicionar(self, jogadores):
-        self.lista_jogadores.append(jogadores)
-
-    def menu(self):
-        for jog in self.lista_jogadores:
-            print('-' * 25)
-            print(f'Nome........: {jog.nome}')
-            print(f'Classe......: {jog.classe}')
-            print(f'Time........: {jog.time}')
-            print(f'Ataque......: {jog.ataque}')
-            print(f'Defesa......: {jog.defesa}')
-            print(f'Status......: {"Vivo" if jog.status else "Morto"}')
-            print(f'Vida........: {jog.vida}')
-
-
 class Soldado(Npc):
     def __init__(self, nome, time, status = True):
         self.vida = 300
@@ -62,21 +43,41 @@ class Tanque(Npc):
         super().__init__(nome, time, self.ataque, self.defesa, self.vida, status=status)
 
 
-npc = Npc('Joe', 0)
-p1 = Soldado('Everton', 1)
-p2 = Atirador('Saulo', 1)
-p3 = Tanque('Pedro', 1)
-p4 = Soldado('Claúdio', 2)
-p5 = Atirador('Felipe', 2)
-p6 = Tanque('Henrique', 2, status=False)
+class TabelaJogadores:
+    def __init__(self):
+        self.lista_jogadores = []
+    
+    def adicionar(self, jogadores):
+        self.lista_jogadores.append(jogadores)
 
-# ver as infos especificas de um player
-# p1.info()
+    def menu(self):
+        for jog in self.lista_jogadores:
+            print('-' * 25)
+            print(f'Nome........: {jog.nome}')
+            print(f'Classe......: {jog.classe}')
+            print(f'Time........: {jog.time}')
+            print(f'Ataque......: {jog.ataque}')
+            print(f'Defesa......: {jog.defesa}')
+            print(f'Status......: {"Vivo" if jog.status else "Morto"}')
+            print(f'Vida........: {jog.vida}')
 
-lista_jogadores = TabelaJogadores()
-lista_jogadores.adicionar(p2)
-lista_jogadores.adicionar(p3)
-lista_jogadores.adicionar(p4)
-lista_jogadores.adicionar(p6)
-# ver as informações de todos os players adicionados no método anterior
-lista_jogadores.menu()
+
+if __name__ == "__main__":
+    npc = Npc('Joe', 0)
+    p1 = Soldado('Everton', 1)
+    p2 = Atirador('Saulo', 1)
+    p3 = Tanque('Pedro', 1)
+    p4 = Soldado('Claúdio', 2)
+    p5 = Atirador('Felipe', 2)
+    p6 = Tanque('Henrique', 2, status=False)
+
+    # ver as infos especificas de um player
+    # p1.info()
+
+    lista_jogadores = TabelaJogadores()
+    lista_jogadores.adicionar(p2)
+    lista_jogadores.adicionar(p3)
+    lista_jogadores.adicionar(p4)
+    lista_jogadores.adicionar(p6)
+    # ver as informações de todos os players adicionados no método anterior
+    lista_jogadores.menu()
